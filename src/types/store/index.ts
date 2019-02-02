@@ -1,5 +1,5 @@
-import { CountState } from "../reducers/count";
+import { UserState } from "../reducers/user";
 
 export interface AppState {
-  test: CountState;
+  user: UserState;
 }
