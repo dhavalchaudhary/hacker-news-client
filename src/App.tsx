@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Dispatch } from "redux";
+import { connect } from "react-redux";
+import { AppState } from "./types/store/index";
+import * as constants from "./constants";
+import * as ActionTypes from "./types/actions/counter";
+import * as actions from "./actions/counter";
 
-class App extends Component {
+interface IProps {
+  count: number;
+  onIncreaseCounter: () => void;
+  onDecreaseCounter: () => void;
+}
+
+class App extends Component<IProps> {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div>{JSON.stringify(this.props)}</div>
+        <button onClick={this.props.onIncreaseCounter}>Increase</button>
+        <button onClick={this.props.onDecreaseCounter}>Decrease</button>
       </div>
     );
   }
 }
+const mapStateToProps = (state: AppState) => ({
+  count: state.test.count
+});
 
-export default App;
+export function mapDispatchToProps(
+  dispatch: Dispatch<ActionTypes.COUNTER_ACTIONS>
+) {
+  return {
+    onIncreaseCounter: () => dispatch(actions.increaseCounter()),
+    onDecreaseCounter: () => dispatch(actions.decreaseCounter())
+  };
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
