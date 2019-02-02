@@ -38,6 +38,14 @@ function userReducer(
           collections: state.ui.collections.filter(i => i !== action.payload.id)
         }
       };
+    case constants.UPDATE_THEME:
+      return {
+        ...state,
+        ui: {
+          ...state.ui,
+          theme: action.payload.theme
+        }
+      };
     default:
       return state;
   }

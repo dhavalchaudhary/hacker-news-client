@@ -1,7 +1,8 @@
 import { StoryIdType, CollectionType } from "../data/items";
+import { ThemeType } from "../data/ui";
 
 export interface UserStateUIType {
-  theme: string;
+  theme: ThemeType;
   collections: Array<CollectionType>;
 }
 

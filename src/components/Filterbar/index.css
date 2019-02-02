@@ -1,0 +1,22 @@
+.filterbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.filter-options-wrapper {
+  list-style: none;
+  display: flex;
+  padding: 0px;
+}
+.filter-options {
+  background: #cccccc;
+  padding: 8px 16px;
+  border-radius: 10%;
+  color: #000000;
+  margin: 0px 12px;
+  cursor: pointer;
+}
+.filter-options.selected {
+  background: #000000;
+  color: #cccccc;
+}
