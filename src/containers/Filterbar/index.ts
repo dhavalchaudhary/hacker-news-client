@@ -8,16 +8,24 @@ import {
   AddCollectionActionType,
   RemoveCollectionActionType
 } from "../../types/actions/user";
+import { fetchCollection } from "../../actions/collections";
+import { FetchCollectionActionType } from "../../types/actions/collection";
 
 const mapStateToProps = (state: AppStateType) => ({
   collections: state.user.ui.collections
 });
 
 const mapDispatchToProps = (
-  dispatch: Dispatch<AddCollectionActionType | RemoveCollectionActionType>
+  dispatch: Dispatch<
+    | AddCollectionActionType
+    | RemoveCollectionActionType
+    | FetchCollectionActionType
+  >
 ) => ({
   onAddCollection: (collectionId: CollectionIdType) =>
     dispatch(addCollection(collectionId)),
+  fetchCollection: (collectionId: CollectionIdType) =>
+    dispatch(fetchCollection(collectionId)),
   onRemoveCollection: (collectionId: CollectionIdType) =>
     dispatch(removeCollection(collectionId))
 });

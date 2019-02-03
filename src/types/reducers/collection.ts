@@ -1,6 +1,5 @@
 import { StoryIdType, CollectionIdType } from "../data/items";
-
-export type FetchStatusType = "loading" | "loaded" | "error";
+import { FetchStatusType } from "../api/state";
 
 export type CollectionsType = {
   [collection in CollectionIdType]?: {

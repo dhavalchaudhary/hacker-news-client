@@ -1,13 +1,13 @@
 import { CollectionStateType } from "../types/reducers/collection";
-import * as CollectionActionTypes from "../types/actions/collection";
+import { CollectionActionTypes } from "../types/actions/collection";
 import * as constants from "../constants/collection";
 
 const initialState: CollectionStateType = {};
 
 function collectionReducer(
   state: CollectionStateType = initialState,
-  action: CollectionActionTypes.CollectionActionTypes
-) {
+  action: CollectionActionTypes
+): CollectionStateType {
   switch (action.type) {
     case constants.FETCH_COLLECTION_INIT:
       return {

@@ -2,6 +2,15 @@ import * as constants from "../constants/collection";
 import * as CollectionActionTypes from "../types/actions/collection";
 import { CollectionIdType, StoryIdType } from "../types/data/items";
 
+export function fetchCollection(
+  collection: CollectionIdType
+): CollectionActionTypes.FetchCollectionActionType {
+  return {
+    type: constants.FETCH_COLLECTION,
+    payload: { collection }
+  };
+}
+
 export function fetchCollectionInit(
   collection: CollectionIdType
 ): CollectionActionTypes.FetchCollectionInitActionType {

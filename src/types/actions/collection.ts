@@ -1,6 +1,7 @@
 import * as constants from "../../constants/collection";
 import { CollectionIdType, StoryIdType } from "../data/items";
 
+export type FETCH_COLLECTION = typeof constants.FETCH_COLLECTION;
 export type FETCH_COLLECTION_INIT = typeof constants.FETCH_COLLECTION_INIT;
 export type FETCH_COLLECTION_SUCCESS = typeof constants.FETCH_COLLECTION_SUCCESS;
 export type FETCH_COLLECTION_ERROR = typeof constants.FETCH_COLLECTION_ERROR;
@@ -12,6 +13,11 @@ export type INVALIDATE_COLLECTION = typeof constants.INVALIDATE_COLLECTION;
 //   | FETCH_COLLECTION_SUCCESS
 //   | FETCH_COLLECTION_ERROR
 //   | INVALIDATE_COLLECTION;
+
+export interface FetchCollectionActionType {
+  type: FETCH_COLLECTION;
+  payload: { collection: CollectionIdType };
+}
 
 export interface FetchCollectionInitActionType {
   type: FETCH_COLLECTION_INIT;
@@ -31,6 +37,7 @@ export interface InvalidateCollectionActionType {
 }
 
 export type CollectionActionTypes =
+  | FetchCollectionActionType
   | FetchCollectionInitActionType
   | FetchCollectionSuccessActionType
   | FetchCollectionErrorActionType

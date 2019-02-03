@@ -7,9 +7,19 @@ interface IProps {
   collections: Array<CollectionIdType>;
   onAddCollection: (collectionId: CollectionIdType) => void;
   onRemoveCollection: (collectionId: CollectionIdType) => void;
+  fetchCollection: (collectionId: CollectionIdType) => void;
 }
 
 class Filterbar extends Component<IProps> {
+  toggleCollection = (id: CollectionIdType): void => {
+    const isSelected = this.props.collections.includes(id);
+    if (isSelected) {
+      this.props.onRemoveCollection(id);
+    } else {
+      this.props.onAddCollection(id);
+      this.props.fetchCollection(id);
+    }
+  };
   render() {
     return (
       <div className="filterbar">
@@ -22,11 +32,7 @@ class Filterbar extends Component<IProps> {
               <li
                 className={`filter-options ${isSelected ? "selected" : ""}`}
                 key={id}
-                onClick={() =>
-                  isSelected
-                    ? this.props.onRemoveCollection(id)
-                    : this.props.onAddCollection(id)
-                }
+                onClick={() => this.toggleCollection(id)}
               >
                 {title}
               </li>

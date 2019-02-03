@@ -7,7 +7,7 @@ function generateCollectionUrl(collection: CollectionIdType) {
 
 export function fetchCollectionData(
   collectionId: CollectionIdType
-): Promise<StoryIdType[]> {
+): Promise<any> {
   return new Promise(function(resolve, reject) {
     fetch(generateCollectionUrl(collectionId))
       .then(res => res.json())
