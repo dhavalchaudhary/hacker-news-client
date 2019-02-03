@@ -1,14 +1,14 @@
-import { StoryIdType, CollectionType } from "../data/items";
+import { StoryIdType, CollectionIdType } from "../data/items";
 import { ThemeType } from "../data/ui";
 
 export interface UserStateUIType {
   theme: ThemeType;
-  collections: Array<CollectionType>;
+  collections: Array<CollectionIdType>;
 }
 
 export type UserStateSavedItemsType = Array<StoryIdType>;
 
-export interface UserState {
+export interface UserStateType {
   savedItems: UserStateSavedItemsType;
   ui: UserStateUIType;
 }

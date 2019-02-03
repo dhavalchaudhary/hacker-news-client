@@ -1,10 +1,13 @@
-import { CollectionType } from "../types/data/items";
+import { CollectionIdType } from "../types/data/items";
 
-export const allCollections: Array<CollectionType> = [
-  "top",
-  "best",
-  "show",
-  "ask",
-  "jobs",
-  "saved"
+export const allCollections: Array<{
+  title: string;
+  id: CollectionIdType;
+}> = [
+  { title: "top", id: "top" },
+  { title: "best", id: "best" },
+  { title: "show", id: "show" },
+  { title: "ask", id: "ask" },
+  { title: "jobs", id: "job" },
+  { title: "saved", id: "saved" }
 ];

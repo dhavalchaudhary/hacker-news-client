@@ -1,5 +1,7 @@
-import { UserState } from "../reducers/user";
+import { UserStateType } from "../reducers/user";
+import { CollectionStateType } from "../reducers/collection";
 
-export interface AppState {
-  user: UserState;
+export interface AppStateType {
+  user: UserStateType;
+  collections: CollectionStateType;
 }

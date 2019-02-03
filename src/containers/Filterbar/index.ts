@@ -1,18 +1,24 @@
-import { AppState } from "../../types/store";
+import { AppStateType } from "../../types/store";
 import { Dispatch } from "redux";
-import { CollectionType } from "../../types/data/items";
+import { CollectionIdType } from "../../types/data/items";
 import { addCollection, removeCollection } from "../../actions/user";
 import Filterbar from "../../components/Filterbar";
 import { connect } from "react-redux";
+import {
+  AddCollectionActionType,
+  RemoveCollectionActionType
+} from "../../types/actions/user";
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppStateType) => ({
   collections: state.user.ui.collections
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onAddCollection: (collectionId: CollectionType) =>
+const mapDispatchToProps = (
+  dispatch: Dispatch<AddCollectionActionType | RemoveCollectionActionType>
+) => ({
+  onAddCollection: (collectionId: CollectionIdType) =>
     dispatch(addCollection(collectionId)),
-  onRemoveCollection: (collectionId: CollectionType) =>
+  onRemoveCollection: (collectionId: CollectionIdType) =>
     dispatch(removeCollection(collectionId))
 });
 

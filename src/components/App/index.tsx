@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Header from "../../containers/Header";
 import Filterbar from "../../containers/Filterbar";
-import { StoryIdType, CollectionType } from "../../types/data/items";
+import { StoryIdType, CollectionIdType } from "../../types/data/items";
 
 interface IProps {
   state: any;
   onSaveStory: (id: StoryIdType) => void;
   onDeleteStory: (id: StoryIdType) => void;
-  onAddCollection: (id: CollectionType) => void;
-  onRemoveCollection: (id: CollectionType) => void;
+  onAddCollection: (id: CollectionIdType) => void;
+  onRemoveCollection: (id: CollectionIdType) => void;
 }
 
 class App extends Component<IProps> {

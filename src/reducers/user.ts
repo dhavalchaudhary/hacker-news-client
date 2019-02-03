@@ -1,8 +1,8 @@
 import * as UserTypes from "../types/actions/user";
 import * as constants from "../constants/user";
-import { UserState } from "../types/reducers/user";
+import { UserStateType } from "../types/reducers/user";
 
-let initialState: UserState = {
+let initialState: UserStateType = {
   savedItems: [],
   ui: {
     theme: "light",
@@ -12,8 +12,8 @@ let initialState: UserState = {
 
 function userReducer(
   state = initialState,
-  action: UserTypes.UserActions
-): UserState {
+  action: UserTypes.UserActionTypes
+): UserStateType {
   switch (action.type) {
     case constants.SAVE_STORY:
       return { ...state, savedItems: [action.payload.id, ...state.savedItems] };
