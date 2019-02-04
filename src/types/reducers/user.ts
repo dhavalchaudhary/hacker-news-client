@@ -4,11 +4,9 @@ import { ThemeType } from "../data/ui";
 export interface UserStateUIType {
   theme: ThemeType;
   collections: Array<CollectionIdType>;
+  pages: Array<Array<StoryIdType>>;
 }
 
-export type UserStateSavedItemsType = Array<StoryIdType>;
-
 export interface UserStateType {
-  savedItems: UserStateSavedItemsType;
   ui: UserStateUIType;
 }

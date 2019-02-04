@@ -3,10 +3,10 @@ import * as constants from "../constants/user";
 import { UserStateType } from "../types/reducers/user";
 
 let initialState: UserStateType = {
-  savedItems: [],
   ui: {
     theme: "light",
-    collections: []
+    collections: [],
+    pages: []
   }
 };
 
@@ -15,13 +15,6 @@ function userReducer(
   action: UserTypes.UserActionTypes
 ): UserStateType {
   switch (action.type) {
-    case constants.SAVE_STORY:
-      return { ...state, savedItems: [action.payload.id, ...state.savedItems] };
-    case constants.DELETE_STORY:
-      return {
-        ...state,
-        savedItems: state.savedItems.filter(i => i !== action.payload.id)
-      };
     case constants.ADD_COLLECTION:
       return {
         ...state,
@@ -44,6 +37,17 @@ function userReducer(
         ui: {
           ...state.ui,
           theme: action.payload.theme
+        }
+      };
+    case constants.UPDATE_PAGE:
+      return {
+        ...state,
+        ui: {
+          ...state.ui,
+          pages:
+            action.payload.page.length === 0
+              ? []
+              : state.ui.pages.concat(action.payload.page)
         }
       };
     default:

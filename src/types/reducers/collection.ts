@@ -4,7 +4,7 @@ import { FetchStatusType } from "../api/state";
 export type CollectionsType = {
   [collection in CollectionIdType]?: {
     fetchStatus: FetchStatusType;
-    lastUpdated: Date;
+    lastUpdated?: Date;
     stories?: Array<StoryIdType>;
   }
 };

@@ -5,13 +5,25 @@ import { Dispatch } from "redux";
 import * as userActions from "../../actions/user";
 import * as DataTypes from "../../types/data/items";
 import * as UserTypes from "../../types/actions/user";
-const mapStateToProps = (state: AppStateType) => ({ state });
+import { fetchMoreStories } from "../../actions/stories";
+import { FetchMoreStoriesActionType } from "../../types/actions/story";
+import { STORIES_PER_PAGE } from "../../constants/ui";
 
-const mapDispatchToProps = (dispatch: Dispatch<UserTypes.UserActionTypes>) => ({
-  onSaveStory: (id: DataTypes.StoryIdType): UserTypes.SaveStoryActionType =>
-    dispatch(userActions.saveStory(id)),
-  onDeleteStory: (id: DataTypes.StoryIdType): UserTypes.DeleteStoryActionType =>
-    dispatch(userActions.deleteStory(id)),
+const mapStateToProps = (state: AppStateType) => {
+  const totalStories = state.user.ui.collections.reduce((sum, i) => {
+    let storiesInCollection = state.collections[i]!.stories;
+    if (storiesInCollection instanceof Array) {
+      return sum + storiesInCollection.length;
+    }
+    return sum;
+  }, 0);
+  const totalStoriesDisplayed = state.user.ui.pages.length * STORIES_PER_PAGE;
+  return { loadMoreValid: totalStories - totalStoriesDisplayed > 0 };
+};
+
+const mapDispatchToProps = (
+  dispatch: Dispatch<UserTypes.UserActionTypes | FetchMoreStoriesActionType>
+) => ({
   onAddCollection: (
     id: DataTypes.CollectionIdType
   ): UserTypes.AddCollectionActionType =>
@@ -19,7 +31,9 @@ const mapDispatchToProps = (dispatch: Dispatch<UserTypes.UserActionTypes>) => ({
   onRemoveCollection: (
     id: DataTypes.CollectionIdType
   ): UserTypes.RemoveCollectionActionType =>
-    dispatch(userActions.removeCollection(id))
+    dispatch(userActions.removeCollection(id)),
+  fetchMoreStories: (): FetchMoreStoriesActionType =>
+    dispatch(fetchMoreStories())
 });
 
 export default connect(

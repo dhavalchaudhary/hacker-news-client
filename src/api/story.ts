@@ -10,8 +10,8 @@ export function fetchStoryData(storyId: StoryIdType): Promise<StoryIdType[]> {
     fetch(generateStoryUrl(storyId))
       .then(res => res.json())
       .then(res => {
-        reject();
-        // resolve(res);
+        // reject();
+        resolve(res);
       })
       .catch(err => {
         reject();

@@ -1,11 +1,16 @@
 import * as constants from "../../constants/stories";
 import { StoryIdType } from "../data/items";
 
+export type FETCH_MORE_STORIES = typeof constants.FETCH_MORE_STORIES;
 export type FETCH_MULTIPLE_STORIES = typeof constants.FETCH_MULTIPLE_STORIES;
 export type FETCH_STORY_INIT = typeof constants.FETCH_STORY_INIT;
 export type FETCH_STORY_SUCCESS = typeof constants.FETCH_STORY_SUCCESS;
 export type FETCH_STORY_ERROR = typeof constants.FETCH_STORY_ERROR;
 export type FETCH_STORY = typeof constants.FETCH_STORY;
+
+export interface FetchMoreStoriesActionType {
+  type: FETCH_MORE_STORIES;
+}
 
 export interface FetchMultipleStoriesActionType {
   type: FETCH_MULTIPLE_STORIES;
@@ -42,6 +47,7 @@ export interface FetchStoryErrorActionType {
 }
 
 export type StoryActionTypes =
+  | FetchMoreStoriesActionType
   | FetchMultipleStoriesActionType
   | FetchStoryActionType
   | FetchStoryInitActionType

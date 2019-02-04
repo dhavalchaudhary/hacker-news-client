@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Header from "../../containers/Header";
 import Filterbar from "../../containers/Filterbar";
 import { StoryIdType, CollectionIdType } from "../../types/data/items";
+import StoryListWrapper from "../../containers/StoryListWrapper";
+import Post from "../Post";
 
 interface IProps {
-  state: any;
-  onSaveStory: (id: StoryIdType) => void;
-  onDeleteStory: (id: StoryIdType) => void;
+  loadMoreValid: boolean;
   onAddCollection: (id: CollectionIdType) => void;
   onRemoveCollection: (id: CollectionIdType) => void;
+  fetchMoreStories: () => void;
 }
 
 class App extends Component<IProps> {
@@ -17,7 +18,10 @@ class App extends Component<IProps> {
       <div>
         <Header />
         <Filterbar />
-        {JSON.stringify(this.props)}
+        <StoryListWrapper />
+        {this.props.loadMoreValid && (
+          <button onClick={this.props.fetchMoreStories}>Load More</button>
+        )}
       </div>
     );
   }

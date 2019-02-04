@@ -1,7 +1,14 @@
 import { StoryIdType } from "../types/data/items";
 import * as constants from "../constants/stories";
 import * as StoryActionTypes from "../types/actions/story";
-export function fetchStories(
+
+export function fetchMoreStories(): StoryActionTypes.FetchMoreStoriesActionType {
+  return {
+    type: constants.FETCH_MORE_STORIES
+  };
+}
+
+export function fetchMultipleStories(
   storyIds: StoryIdType[]
 ): StoryActionTypes.FetchMultipleStoriesActionType {
   return {

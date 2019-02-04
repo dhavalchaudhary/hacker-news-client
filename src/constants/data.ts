@@ -8,6 +8,5 @@ export const allCollections: Array<{
   { title: "best", id: "best" },
   { title: "show", id: "show" },
   { title: "ask", id: "ask" },
-  { title: "jobs", id: "job" },
-  { title: "saved", id: "saved" }
+  { title: "jobs", id: "job" }
 ];
