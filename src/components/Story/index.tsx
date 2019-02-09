@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import ConditionalRender from "../ConditionalRender";
-import { ArrowDropUp, ModeComment } from "@material-ui/icons";
+import { ArrowDropUp, ModeCommentTwoTone } from "@material-ui/icons";
 import { unix } from "moment";
 
 const HACKER_NEWS_ROOT_URL = "https://news.ycombinator.com";
@@ -44,7 +44,7 @@ const Story = ({ data }: { data: any }) => {
         </div>
         <div className="story-title-wrapper">
           <a
-            href={postUrl}
+            href={data.url}
             target="_blank"
             className="story-row story-title"
           >{`${data.title}`}</a>
@@ -59,7 +59,7 @@ const Story = ({ data }: { data: any }) => {
               className="story-info-el story-info-links story-comments-wrapper"
             >
               <div className="story-icon">
-                <ModeComment />
+                <ModeCommentTwoTone />
               </div>
               <div className="story-comment">{`${
                 data.descendants
