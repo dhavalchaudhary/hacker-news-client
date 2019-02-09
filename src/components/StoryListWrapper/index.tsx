@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { StoryIdType } from "../../types/data/items";
 import StoryList from "../../containers/StoryList";
 import "./index.css";
+import { StoryItemType } from "../../types/reducers/user";
 
 type IProps = {
-  pages: Array<Array<StoryIdType>>;
+  pages: Array<Array<StoryItemType>>;
 };
 
 class StoryListWrapper extends Component<IProps> {

@@ -24,21 +24,21 @@ class Filterbar extends Component<IProps> {
     return (
       <div className="filterbar">
         Choose Filters -
-        <ul className="filter-options-wrapper">
+        <div className="filter-options-wrapper">
           {allCollections.map(i => {
             const { title, id } = i;
             const isSelected = this.props.collections.includes(id);
             return (
-              <li
+              <button
                 className={`filter-options ${isSelected ? "selected" : ""}`}
                 key={id}
                 onClick={() => this.toggleCollection(id)}
               >
                 {title}
-              </li>
+              </button>
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }

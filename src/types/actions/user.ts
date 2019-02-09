@@ -1,6 +1,7 @@
 import * as constants from "../../constants/user";
 import { StoryIdType, CollectionIdType } from "../../types/data/items";
 import { ThemeType } from "../../types/data/ui";
+import { StoryItemType } from "../reducers/user";
 
 export type SAVE_STORY = typeof constants.SAVE_STORY;
 export type DELETE_STORY = typeof constants.DELETE_STORY;
@@ -32,7 +33,7 @@ export interface UpdateThemeActionType {
 export interface UpdatePageActionType {
   type: UPDATE_PAGE;
   payload: {
-    page: Array<Array<StoryIdType>>;
+    page: Array<Array<StoryItemType>>;
   };
 }
 

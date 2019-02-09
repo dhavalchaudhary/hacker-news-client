@@ -2,6 +2,7 @@ import * as constants from "../constants/user";
 import * as UserActionTypes from "../types/actions/user";
 import { StoryIdType, CollectionIdType } from "../types/data/items";
 import { ThemeType } from "../types/data/ui";
+import { StoryItemType } from "../types/reducers/user";
 
 export function addCollection(
   id: CollectionIdType
@@ -22,7 +23,7 @@ export function updateTheme(
 }
 
 export function updatePage(
-  page: Array<Array<StoryIdType>>
+  page: Array<Array<StoryItemType>>
 ): UserActionTypes.UpdatePageActionType {
   return {
     type: constants.UPDATE_PAGE,

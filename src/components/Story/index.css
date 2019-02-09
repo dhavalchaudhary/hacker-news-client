@@ -1,33 +1,96 @@
 .story-card {
   display: flex;
   flex-direction: row;
-  margin: 10px 0px;
+  margin: 25px 0px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px 10px;
 }
 .story-row {
   width: 100%;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.story-header {
+  margin: 0px 8px 8px 0px;
 }
 .story-upvotes {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin-top: -6px;
+  width: 40px;
 }
+
 .story-score {
   padding: 0px;
   margin: 0px;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: 600;
 }
 .story-info-wrapper {
   margin-left: 10px;
 }
+.story-info-divider {
+  margin: 0px 5px 0px 0px;
+}
+.story-info-el-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px 0px 0px;
+}
+.story-info-el {
+  margin: 0px;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.story-info-collection-type {
+  font-weight: 600;
+  color: black;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+.story-info-links {
+  text-decoration: none;
+  color: gray;
+  text-decoration-color: grey;
+}
+.story-info-links:hover,
+.story-info-links:focus {
+  text-decoration: underline;
+}
+.story-title-wrapper {
+  margin-bottom: 16px;
+}
 .story-title {
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 18px;
+  font-weight: 700;
   line-height: 1.25;
+  color: black !important;
+  text-decoration: none !important;
+  cursor: pointer;
 }
 .story-info {
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 12px;
-  margin-top: 3px;
+}
+.story-comments-wrapper .story-icon svg {
+  font-size: 14px;
+}
+.story-comment {
+  font-size: 12px;
+  line-height: 1.25;
+  margin-left: 5px;
+}
+.story-icon {
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }

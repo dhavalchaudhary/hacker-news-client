@@ -13,7 +13,7 @@
   margin: 0px 0px 0px 15px;
 }
 .filter-options {
-  background: #cccccc;
+  background: #ffffff;
   padding: 8px 16px;
   border-radius: 10%;
   color: #000000;
@@ -22,9 +22,10 @@
   font-size: 18px;
   line-height: 1.25;
   text-transform: capitalize;
+  border: 1px solid #000000;
 }
 .filter-options.selected {
   background: #000000;
-  color: #cccccc;
+  color: #ffffff;
   font-weight: 700;
 }

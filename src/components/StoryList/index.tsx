@@ -2,8 +2,9 @@ import React, { Component, ReactElement } from "react";
 import { StoryIdType } from "../../types/data/items";
 import Story from "../Story";
 import "./index.css";
+import { StoryItemType } from "../../types/reducers/user";
 type IProps = {
-  storyIds: Array<StoryIdType>;
+  storyIds: Array<StoryItemType>;
   isLoading: boolean;
   isError: boolean;
   data: Array<any>;
