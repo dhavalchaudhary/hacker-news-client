@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeType } from "../../types/data/ui";
-
+import { InvertColors } from "@material-ui/icons";
 import "./index.css";
 
 interface IProps {
@@ -11,18 +11,24 @@ interface IProps {
 const Header = (props: IProps) => (
   <header>
     <h3 className="header-title">Hacker News Reader</h3>
-    <div>
-      <label>
-        <input
+    <button
+      className="header-dark-mode-toggle"
+      onClick={() =>
+        props.updateTheme(props.theme === "dark" ? "light" : "dark")
+      }
+    >
+      {/* <label> */}
+      <InvertColors />
+      {/* <input
           type="checkbox"
           checked={props.theme === "dark"}
           onChange={() =>
             props.updateTheme(props.theme === "dark" ? "light" : "dark")
           }
         />
-        Dark Mode
-      </label>
-    </div>
+        Dark Mode */}
+      {/* </label> */}
+    </button>
   </header>
 );
 

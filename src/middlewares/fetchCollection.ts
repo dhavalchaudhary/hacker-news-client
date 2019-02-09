@@ -15,6 +15,7 @@ const fetchCollectionMiddleware: Middleware = store => next => async (
   action: AppActions
 ) => {
   if (action.type === FETCH_COLLECTION) {
+    debugger;
     const collectionId = action.payload.collection;
     const state: AppStateType = store.getState();
     if (!state.collections.hasOwnProperty(collectionId)) {
@@ -27,6 +28,9 @@ const fetchCollectionMiddleware: Middleware = store => next => async (
       } catch (err) {
         store.dispatch(fetchCollectionError(collectionId));
       }
+    } else {
+      store.dispatch(updatePage([]));
+      store.dispatch(fetchMoreStories());
     }
   }
   return next(action);

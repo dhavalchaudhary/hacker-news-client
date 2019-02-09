@@ -10,3 +10,9 @@ header {
   font-size: 22px;
   font-weight: 700;
 }
+.header-dark-mode-toggle {
+  cursor: pointer;
+  background: transparent;
+  box-shadow: none;
+  border: 0px;
+}

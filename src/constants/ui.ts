@@ -1,1 +1,1 @@
-export const STORIES_PER_PAGE: number = 20;
+export const STORIES_PER_PAGE: number = 5;

@@ -11,6 +11,7 @@ import { StoryItemType } from "../types/reducers/user";
 
 const fetchMoreStories: Middleware = store => next => (action: AppActions) => {
   if (action.type === FETCH_MORE_STORIES) {
+    debugger;
     const state: AppStateType = store.getState();
     const totalVisibleCollections: number = state.user.ui.collections.length;
     const currentPage: number = state.user.ui.pages.length;
@@ -41,15 +42,18 @@ const fetchMoreStories: Middleware = store => next => (action: AppActions) => {
       },
       []
     );
+    console.log(allItems);
     shuffle(allItems);
-    store.dispatch(updatePage([allItems]));
-    store.dispatch(
-      fetchMultipleStories(
-        allItems
-          .filter(i => !state.stories.hasOwnProperty(i.storyId))
-          .map(j => j.storyId)
-      )
-    );
+    store.dispatch(updatePage(allItems.length > 0 ? [allItems] : []));
+    if (allItems.length > 0) {
+      store.dispatch(
+        fetchMultipleStories(
+          allItems
+            .filter(i => !state.stories.hasOwnProperty(i.storyId))
+            .map(j => j.storyId)
+        )
+      );
+    }
   }
   return next(action);
 };
