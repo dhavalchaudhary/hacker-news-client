@@ -1,9 +1,9 @@
-import React, { Component, ReactElement } from "react";
-import { StoryIdType } from "../../types/data/items";
+import React, { Component } from "react";
 import Story from "../Story";
 import "./index.css";
 import { StoryItemType } from "../../types/reducers/user";
 import LoadingIcon from "../LoadingIcon";
+
 type IProps = {
   storyIds: Array<StoryItemType>;
   isLoading: boolean;

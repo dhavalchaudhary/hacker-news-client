@@ -10,22 +10,25 @@
   list-style: none;
   display: flex;
   padding: 0px;
-  margin: 0px 0px 0px 15px;
+  margin: 0px;
 }
 .filter-options {
-  background: #ffffff;
-  padding: 8px 16px;
+  background: var(--main-bg);
+  padding: 4px 16px;
   border-radius: 10%;
-  color: #000000;
+  color: var(--main-text);
   margin: 0px 12px;
   cursor: pointer;
   font-size: 18px;
   line-height: 1.25;
   text-transform: capitalize;
-  border: 1px solid #000000;
+  border: 1px solid var(--main-text);
+}
+.filter-options:first-child {
+  margin-left: 0px;
 }
 .filter-options.selected {
-  background: #000000;
-  color: #ffffff;
+  background: var(--main-text);
+  color: var(--main-bg);
   font-weight: 700;
 }

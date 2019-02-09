@@ -16,7 +16,10 @@ const mapStateToProps = (state: AppStateType) => {
     return sum;
   }, 0);
   const totalStoriesDisplayed = state.user.ui.pages.length * STORIES_PER_PAGE;
-  return { loadMoreValid: totalStories - totalStoriesDisplayed > 0 };
+  return {
+    loadMoreValid: totalStories - totalStoriesDisplayed > 0,
+    theme: state.user.ui.theme
+  };
 };
 
 const mapDispatchToProps = (

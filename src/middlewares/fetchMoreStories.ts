@@ -2,7 +2,7 @@ import { AppStateType } from "../types/store/index";
 import { Middleware } from "redux";
 import { AppActions } from "../types/actions";
 import { updatePage } from "../actions/user";
-import { StoryIdType, CollectionIdType } from "../types/data/items";
+import { StoryIdType } from "../types/data/items";
 import shuffle from "shuffle-array";
 import { FETCH_MORE_STORIES } from "../constants/stories";
 import { fetchMultipleStories } from "../actions/stories";
@@ -12,9 +12,9 @@ import { StoryItemType } from "../types/reducers/user";
 const fetchMoreStories: Middleware = store => next => (action: AppActions) => {
   if (action.type === FETCH_MORE_STORIES) {
     const state: AppStateType = store.getState();
-    const totalVisibleCollections: number = state.user.ui.collections.length;
-    const currentPage: number = state.user.ui.pages.length;
-    const totalItemsPerPage: number = STORIES_PER_PAGE;
+    const totalVisibleCollections = state.user.ui.collections.length;
+    const currentPage = state.user.ui.pages.length;
+    const totalItemsPerPage = STORIES_PER_PAGE;
     const totalItemsPerCollectionPerPage = Math.round(
       totalItemsPerPage / totalVisibleCollections
     );
@@ -32,7 +32,10 @@ const fetchMoreStories: Middleware = store => next => (action: AppActions) => {
                 currentPage * totalItemsPerCollectionPerPage,
                 (currentPage + 1) * totalItemsPerCollectionPerPage
               )
-              .map((storyId: StoryIdType) => ({ storyId, collection: i }))
+              .map((storyId: StoryIdType) => ({
+                storyId,
+                collection: i
+              }))
               .filter(story => !idsAlreadyAdded.includes(story.storyId))
           );
         } else {
@@ -41,7 +44,6 @@ const fetchMoreStories: Middleware = store => next => (action: AppActions) => {
       },
       []
     );
-    console.log(allItems);
     shuffle(allItems);
     store.dispatch(updatePage(allItems.length > 0 ? [allItems] : []));
     if (allItems.length > 0) {

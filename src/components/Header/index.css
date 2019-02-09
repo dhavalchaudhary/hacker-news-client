@@ -9,6 +9,7 @@ header {
   margin: 0px;
   font-size: 22px;
   font-weight: 700;
+  color: var(--main-text);
 }
 .header-dark-mode-toggle {
   cursor: pointer;

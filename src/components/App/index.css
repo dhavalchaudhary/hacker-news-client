@@ -1,4 +1,20 @@
 .app-wrapper {
+  --main-bg: #ffffff;
+  --main-text: #000000;
+  --sub-text: gray;
+}
+.app-wrapper.dark-mode {
+  --main-bg: #000000;
+  --main-text: #ffffff;
+  --sub-text: gray;
+}
+.app-wrapper {
+  height: 100%;
+  width: 100%;
+  background: var(--main-bg);
+}
+
+.app {
   width: 760px;
   margin: 0px auto;
   display: flex;
@@ -6,17 +22,19 @@
   align-items: center;
   justify-content: center;
 }
-
 .load-more-btn {
   padding: 8px 16px;
   text-transform: uppercase;
   font-size: 18px;
   line-height: 1.35;
-  border: 1px solid #000000;
+  border: 1px solid var(--main-text);
   margin: 20px 0px;
-  background: #000000;
-  color: #ffffff;
+  background: var(--main-text);
+  color: var(--main-bg);
   cursor: pointer;
+}
+svg {
+  color: var(--main-text);
 }
 @media only screen and (max-width: 768px) {
   .app-wrapper {
