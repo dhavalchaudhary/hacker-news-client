@@ -1,7 +1,7 @@
 import React, { Component, ReactElement } from "react";
 import { StoryIdType } from "../../types/data/items";
-import Post from "../Post";
-
+import Story from "../Story";
+import "./index.css";
 type IProps = {
   storyIds: Array<StoryIdType>;
   isLoading: boolean;
@@ -10,15 +10,20 @@ type IProps = {
 };
 
 class StoryList extends Component<IProps> {
+  generateStoryList = () => {
+    let rows: Array<JSX.Element> = [];
+    this.props.data.forEach(i => rows.push(<Story key={i.id} data={i} />));
+    return rows;
+  };
   render() {
     return (
-      <React.Fragment>
+      <div className="storylist">
         {this.props.isLoading && "Loading"}
         {this.props.isError && "Error"}
         {!this.props.isLoading &&
           !this.props.isError &&
-          this.props.data.map(i => <Post key={i.id} data={i} />)}
-      </React.Fragment>
+          this.generateStoryList()}
+      </div>
     );
   }
 }

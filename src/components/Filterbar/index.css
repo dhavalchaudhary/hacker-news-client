@@ -2,11 +2,15 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-size: 18px;
+  line-height: 1.25;
+  width: 100%;
 }
 .filter-options-wrapper {
   list-style: none;
   display: flex;
   padding: 0px;
+  margin: 0px 0px 0px 15px;
 }
 .filter-options {
   background: #cccccc;
@@ -15,8 +19,12 @@
   color: #000000;
   margin: 0px 12px;
   cursor: pointer;
+  font-size: 18px;
+  line-height: 1.25;
+  text-transform: capitalize;
 }
 .filter-options.selected {
   background: #000000;
   color: #cccccc;
+  font-weight: 700;
 }

@@ -23,7 +23,7 @@ class Filterbar extends Component<IProps> {
   render() {
     return (
       <div className="filterbar">
-        Currently Showing -
+        Choose Filters -
         <ul className="filter-options-wrapper">
           {allCollections.map(i => {
             const { title, id } = i;

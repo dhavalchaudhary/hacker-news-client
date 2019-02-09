@@ -10,7 +10,7 @@ interface IProps {
 
 const Header = (props: IProps) => (
   <header>
-    <div>Hacker News Reader</div>
+    <h3 className="header-title">Hacker News Reader</h3>
     <div>
       <label>
         <input

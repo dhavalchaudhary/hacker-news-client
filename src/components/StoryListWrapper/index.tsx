@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StoryIdType } from "../../types/data/items";
 import StoryList from "../../containers/StoryList";
+import "./index.css";
 
 type IProps = {
   pages: Array<Array<StoryIdType>>;
@@ -9,7 +10,7 @@ type IProps = {
 class StoryListWrapper extends Component<IProps> {
   render() {
     return (
-      <div>
+      <div className="storylist-wrapper">
         {this.props.pages.map((i, j) => (
           <StoryList key={j} storyIds={i} />
         ))}

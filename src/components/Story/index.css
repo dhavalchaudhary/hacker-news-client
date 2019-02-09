@@ -1,0 +1,33 @@
+.story-card {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px;
+}
+.story-row {
+  width: 100%;
+  display: flex;
+}
+.story-upvotes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.story-score {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+}
+.story-info-wrapper {
+  margin-left: 10px;
+}
+.story-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+}
+.story-info {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  margin-top: 3px;
+}

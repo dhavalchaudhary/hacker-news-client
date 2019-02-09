@@ -21,22 +21,14 @@ const fetchMoreStories: Middleware = store => next => (action: AppActions) => {
       (arr: Array<StoryIdType>, i) => {
         const items = state.collections[i]!.stories;
         if (items instanceof Array) {
-          // console.log(items);
-          // console.log(currentPage);
-          // console.log(totalItemsPerCollectionPerPage);
-          // console.log(
-          //   items.slice(
-          //     currentPage * totalItemsPerCollectionPerPage,
-          //     (currentPage + 1) * totalItemsPerCollectionPerPage
-          //   )
-          // );
-          return [
-            ...arr,
-            ...items.slice(
-              currentPage * totalItemsPerCollectionPerPage,
-              (currentPage + 1) * totalItemsPerCollectionPerPage
-            )
-          ];
+          return arr.concat(
+            items
+              .slice(
+                currentPage * totalItemsPerCollectionPerPage,
+                (currentPage + 1) * totalItemsPerCollectionPerPage
+              )
+              .filter((storyId: StoryIdType) => !arr.includes(storyId))
+          );
         } else {
           return arr;
         }
