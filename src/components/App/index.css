@@ -37,8 +37,12 @@
 svg {
   color: var(--main-text);
 }
-@media only screen and (max-width: 768px) {
-  .app-wrapper {
-    width: 90vw;
+@media only screen and (max-width: 760px) {
+  .app {
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
