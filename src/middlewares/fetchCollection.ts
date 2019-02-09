@@ -15,7 +15,6 @@ const fetchCollectionMiddleware: Middleware = store => next => async (
   action: AppActions
 ) => {
   if (action.type === FETCH_COLLECTION) {
-    debugger;
     const collectionId = action.payload.collection;
     const state: AppStateType = store.getState();
     if (!state.collections.hasOwnProperty(collectionId)) {

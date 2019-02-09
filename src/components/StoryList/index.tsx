@@ -3,6 +3,7 @@ import { StoryIdType } from "../../types/data/items";
 import Story from "../Story";
 import "./index.css";
 import { StoryItemType } from "../../types/reducers/user";
+import LoadingIcon from "../LoadingIcon";
 type IProps = {
   storyIds: Array<StoryItemType>;
   isLoading: boolean;
@@ -19,7 +20,7 @@ class StoryList extends Component<IProps> {
   render() {
     return (
       <div className="storylist">
-        {this.props.isLoading && "Loading"}
+        {this.props.isLoading && <LoadingIcon />}
         {this.props.isError && "Error"}
         {!this.props.isLoading &&
           !this.props.isError &&

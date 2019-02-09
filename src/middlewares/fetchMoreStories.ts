@@ -11,7 +11,6 @@ import { StoryItemType } from "../types/reducers/user";
 
 const fetchMoreStories: Middleware = store => next => (action: AppActions) => {
   if (action.type === FETCH_MORE_STORIES) {
-    debugger;
     const state: AppStateType = store.getState();
     const totalVisibleCollections: number = state.user.ui.collections.length;
     const currentPage: number = state.user.ui.pages.length;

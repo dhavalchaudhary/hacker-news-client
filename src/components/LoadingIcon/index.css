@@ -1,0 +1,43 @@
+.loading-icon-wrapper {
+  width: 100%;
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-icon {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+.loading-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ff6600;
+  width: 100%;
+  -webkit-animation: background-fill 1.5s infinite;
+  animation: background-fill 1.5s infinite;
+}
+.loading-text {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes background-fill {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
