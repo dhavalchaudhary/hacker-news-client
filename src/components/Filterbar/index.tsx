@@ -10,6 +10,31 @@ interface IProps {
   fetchCollection: (collectionId: CollectionIdType) => void;
 }
 
+const FilterList = (props: {
+  toggleCollection: (id: CollectionIdType) => void;
+  children: any;
+}) => {
+  const children: any = React.Children.map(props.children, child =>
+    React.cloneElement(child, {
+      toggleCollection: (id: any) => props.toggleCollection(id)
+    })
+  );
+  return <div className="filter-options-wrapper">{children}</div>;
+};
+
+const FilterItem = (props: any) => {
+  const { toggleCollection, id, selected } = props;
+  return (
+    <button
+      className={`filter-options ${selected ? "selected" : ""}`}
+      key={id}
+      onClick={() => toggleCollection(id)}
+    >
+      {props.children}
+    </button>
+  );
+};
+
 class Filterbar extends Component<IProps> {
   toggleCollection = (id: CollectionIdType): void => {
     const isSelected = this.props.collections.includes(id);
@@ -23,21 +48,20 @@ class Filterbar extends Component<IProps> {
   render() {
     return (
       <div className="filterbar">
-        <div className="filter-options-wrapper">
+        <FilterList toggleCollection={this.toggleCollection}>
           {allCollections.map(i => {
-            const { title, id } = i;
-            const isSelected = this.props.collections.includes(id);
+            const { id, title } = i;
             return (
-              <button
-                className={`filter-options ${isSelected ? "selected" : ""}`}
+              <FilterItem
                 key={id}
-                onClick={() => this.toggleCollection(id)}
+                id={id}
+                selected={this.props.collections.includes(id)}
               >
                 {title}
-              </button>
+              </FilterItem>
             );
           })}
-        </div>
+        </FilterList>
       </div>
     );
   }

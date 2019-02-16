@@ -1,4 +1,4 @@
-import React, { JSXElementConstructor } from "react";
+import React from "react";
 
 const ConditionalRender = ({
   condition,
@@ -7,6 +7,8 @@ const ConditionalRender = ({
   condition: boolean;
   children: JSX.Element;
   // }) => (condition ? children : <div />);
-}) => children;
+}) => {
+  return condition ? children : null;
+};
 
 export default ConditionalRender;

@@ -51,7 +51,7 @@ const Story = ({ data }: { data: any }) => {
         </div>
         <div className="story-row story-info">
           <ConditionalRender
-            condition={data.descendants && data.descendants.length > 0}
+            condition={data && data.descendants && data.descendants > 0}
           >
             <a
               href={postUrl}
