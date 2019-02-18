@@ -25,21 +25,23 @@ const Story = ({ data }: { data: any }) => {
           </div>
           <span className="story-info-divider">•</span>
           <div className="story-info-el-wrapper">
-            <p className="story-info-el">Posted by </p>
             <a
               href={`${HACKER_NEWS_ROOT_URL}/user?id=${data.by}`}
               target="_blank"
               className="story-info-el story-info-links"
             >
-              {` ${data.by}`}
+              <p className="story-info-el">{`Posted by ${data.by}`}</p>
             </a>
           </div>
+          <span className="story-info-divider">•</span>
           <div className="story-info-el-wrapper">
             <a
               href={postUrl}
               target="_blank"
               className="story-info-el story-info-links"
-            >{`${unix(data.time).fromNow()} ago`}</a>
+            >
+              {unix(data.time).fromNow()}
+            </a>
           </div>
         </div>
         <div className="story-title-wrapper">
